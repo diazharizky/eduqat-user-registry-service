@@ -38,3 +38,11 @@ functions:
           path: users/{id}
           method: patch
           cors: true
+
+  delete:
+    handler: functions/delete.handler
+    events:
+      - http:
+          path: users/{id}
+          method: delete
+          cors: true
