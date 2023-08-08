@@ -66,3 +66,41 @@ npm run dev
 ```
 
 The command will deploy the service through HTTP that accessible on `http://localhost:3000`, you can use a REST API client such as Postman or any other tools that you like.
+
+## Example Requests
+
+Below are example requests that work via terminal (cURL)
+
+### Create User
+
+```bash
+curl --location 'http://localhost:3000/dev/users' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email": "jane@mail.com",
+    "fullName": "Jane",
+    "password": "nosecret"
+}'
+```
+
+### Get User
+
+```bash
+curl --location 'http://localhost:3000/dev/users/89bd8900-35a5-11ee-af91-3558f5d64746'
+```
+
+### Update User
+
+```bash
+curl --location --request PATCH 'http://localhost:3000/dev/users/89bd8900-35a5-11ee-af91-3558f5d64746' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email": "secret@mail.com"
+}'
+```
+
+### Delete User
+
+```bash
+curl --location --request DELETE 'http://localhost:3000/dev/users/89bd8900-35a5-11ee-af91-3558f5d64746'
+```
