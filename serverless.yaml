@@ -1,0 +1,41 @@
+service: user-registry-service
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  httpApi:
+    cors: true
+  environment:
+    DB_URL: http://localhost:8000
+    DB_TABLE: ${self:service}-${sls:stage}
+
+plugins:
+  - serverless-offline
+  - serverless-dynamodb-local
+
+functions:
+  get:
+    handler: functions/get.handler
+    events:
+      - http:
+          path: users/{id}
+          method: get
+          cors: true
+
+  create:
+    handler: functions/create.handler
+    events:
+      - http:
+          path: users
+          method: post
+          cors: true
+
+  update:
+    handler: functions/update.handler
+    events:
+      - http:
+          path: users/{id}
+          method: patch
+          cors: true
