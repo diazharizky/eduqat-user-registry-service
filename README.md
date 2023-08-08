@@ -1,6 +1,6 @@
 # Eduqat User Registry Service
 
-A simple service containing some functions that work and simulate user management operations
+A simple service containing some functions that work and simulate user management operations.
 
 ## Prerequisites
 
