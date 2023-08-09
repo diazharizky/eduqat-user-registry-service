@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
 const { GetCommand } = require('@aws-sdk/lib-dynamodb')
-const dbClient = require('../libs/dbClient');
+const dbClient = require('../libs/dbClient')
 const { success, fatal } = require('../libs/responses')
 
 module.exports.handler = async (e) => {
@@ -17,6 +17,6 @@ module.exports.handler = async (e) => {
   } catch (err) {
     console.log(err)
 
-    return fatal("Error unable to retrieve user")
+    return fatal('Error unable to retrieve user')
   }
 }
